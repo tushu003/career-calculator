@@ -1,52 +1,78 @@
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
-import React from "react";
+import Image from "next/image";
 
+// Place a logo at /public/logo.png or change the src below.
 export default function NavBar() {
-    const nevMenu=<>
-    <Link href="/">Home</Link>
-    <Link href="/about">About</Link>
-    <Link href="/contact">Contact</Link>
-    </>
+  const [open, setOpen] = useState(false);
+
   return (
-    <div>
-      <div className="navbar bg-base-100 shadow-sm">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
-              </svg>
-            </div>
-            <ul
-              tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-                {nevMenu}
-            </ul>
+    <header className="bg-gradient-to-r from-[#12142D] via-[#24184A] to-[#331D67] text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* left: logo */}
+          <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="relative w-36 h-8 sm:w-40 sm:h-10">
+                {/* update the src to your logo file in /public */}
+                <Image src="/logo.png" alt="Evolve Tutoring" fill style={{ objectFit: 'contain' }} />
+              </div>
+            </Link>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+
+          {/* center / desktop nav */}
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            <Link href="#" className="hover:text-gray-200 transition">Home</Link>
+            <Link href="#" className="hover:text-gray-200 transition">About</Link>
+            <Link href="#" className="hover:text-gray-200 transition">Find Tutor</Link>
+            <Link href="#" className="hover:text-gray-200 transition">Contact</Link>
+            <Link href="#" className="hover:text-gray-200 transition">A Student Portal</Link>
+            <Link href="#" className="hover:text-gray-200 transition">Tutor Portal</Link>
+          </nav>
+
+          {/* right: CTA */}
+          <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3">
+              <button className="px-4 py-1 rounded-full bg-[#F97316] hover:bg-orange-400 text-sm font-semibold shadow">Book Session</button>
+            </div>
+
+            {/* mobile menu button */}
+            <button
+              className="md:hidden p-2 rounded-md focus:outline-none"
+              onClick={() => setOpen((v) => !v)}
+              aria-label="Toggle menu"
+            >
+              {open ? (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 18L18 6M6 6l12 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              ) : (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 7h16M4 12h16M4 17h16" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {nevMenu}
-          </ul>
-        </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
-        </div>
+
+        {/* mobile nav */}
+        {open && (
+          <div className="md:hidden mt-2 pb-4 border-t border-white/10">
+            <nav className="flex flex-col space-y-2 py-3">
+              <Link href="#" className="px-2 py-2 rounded hover:bg-white/5">Home</Link>
+              <Link href="#" className="px-2 py-2 rounded hover:bg-white/5">About</Link>
+              <Link href="#" className="px-2 py-2 rounded hover:bg-white/5">Find Tutor</Link>
+              <Link href="#" className="px-2 py-2 rounded hover:bg-white/5">Contact</Link>
+              <Link href="#" className="px-2 py-2 rounded hover:bg-white/5">A Student Portal</Link>
+              <Link href="#" className="px-2 py-2 rounded hover:bg-white/5">Tutor Portal</Link>
+              <div className="px-2 pt-2">
+                <button className="w-full px-4 py-2 rounded-full bg-orange-500 text-sm font-semibold">Book Session</button>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
-    </div>
+    </header>
   );
 }
