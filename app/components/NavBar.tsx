@@ -14,7 +14,7 @@ export default function NavBar(): React.ReactElement {
           {/* left: logo */}
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-36 h-8 sm:w-40 sm:h-10">
+              <div className="relative sm:w-40 sm:h-10">
                 {/* update the src to your logo file in /public */}
                 <Image src="/logo.png" alt="Evolve Tutoring" fill style={{ objectFit: 'contain' }} />
               </div>
