@@ -4,12 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Place a logo at /public/logo.png or change the src below.
-export default function NavBar() {
+export default function NavBar(): React.ReactElement {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="bg-gradient-to-r from-[#12142D] via-[#24184A] to-[#331D67] text-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-11/12 mx-auto px-2 sm:px-3 lg:px-3">
         <div className="flex items-center justify-between h-20">
           {/* left: logo */}
           <div className="flex items-center gap-4">
