@@ -67,7 +67,7 @@ export default function NavBar(): React.ReactElement {
               <Link href="#" className="px-2 py-2 rounded hover:bg-white/5">A Student Portal</Link>
               <Link href="#" className="px-2 py-2 rounded hover:bg-white/5">Tutor Portal</Link>
               <div className="px-2 pt-2">
-                <button className="w-full px-4 py-2 rounded-full bg-orange-500 text-sm font-semibold">Book Session</button>
+                <button className="w-[8px] px-4 py-2 rounded-full bg-orange-500 text-sm font-semibold">Book Session</button>
               </div>
             </nav>
           </div>
